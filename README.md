@@ -52,3 +52,24 @@ deploy_job:
   stage: deploy
   script:
     - echo "Desplegando en producción..."
+
+```
+---
+
+## 🙌 Contribuciones
+> ¿Tienes sugerencias, mejoras o quieres compartir un caso de uso real?
+> ¡Puedes abrir un issue o un pull request! Todas las contribuciones son bienvenidas.
+> 
+---
+
+## 🔗 Contacto
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-David%20Macias-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/davidmaciasdiaz/)  
+✉️ davmacdi99@gmail.com
+
+
+
+
+
+
+
