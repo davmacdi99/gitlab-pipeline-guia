@@ -34,7 +34,7 @@ GitLab lee ese archivo y se encarga de ejecutar todo, en el orden que ya definim
 
 ---
 
-> Esta guía está pensadda para aprender desde lo más básico hasta ejemplos prácticos para crear nuestros propios pipelines y automatizar tareas paso a paso.
+> Esta guía está pensada para aprender desde lo más básico hasta ejemplos prácticos para crear nuestros propios pipelines y automatizar tareas paso a paso.
 > Toda ayuda aportada será bien recibida! Dado que este repositorio nace de las ganas de aprender sobre esta gran herramienta!
 
 ¡Vamos allá!
