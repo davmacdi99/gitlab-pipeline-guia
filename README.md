@@ -18,15 +18,15 @@ Esta guía está pensada para desarrolladores, DevOps y equipos que quieran inco
 
 ## 📂 Contenido
 
-- [Introducción a GitLab CI/CD](#introducción-a-gitlab-cicd)
-- [Estructura de un `.gitlab-ci.yml`](#estructura-de-un-gitlab-ciyml)
-- [Uso de Variables](#uso-de-variables)
-- [Condiciones y Reglas](#condiciones-y-reglas)
-- [Artefactos y Caché](#artefactos-y-caché)
-- [Plantillas y Reutilización](#plantillas-y-reutilización)
-- [Despliegues Manuales y Automáticos](#despliegues-manuales-y-automáticos)
-- [Environments en GitLab](#environments-en-gitlab)
-- [Buenas Prácticas](#buenas-prácticas)
+- [Introducción a GitLab CI/CD](/Carpetas-Contenidos/Introduccion/introduccion.md)
+- [Estructura de un `.gitlab-ci.yml`](/Carpetas-Contenidos/Estructura/estructura-yml.md)
+- [Uso de Variables](/Carpetas-Contenidos/Variables/variables.md)
+- [Condiciones y Reglas](/Carpetas-Contenidos/Condiciones-Reglas/condiciones-reglas.md)
+- [Artefactos y Caché](/Carpetas-Contenidos/Artefactos-cache/artefactos-cache.md)
+- [Plantillas y Reutilización](/Carpetas-Contenidos/Plantillas/plantillas-reutilizacion.md)
+- [Despliegues Manuales y Automáticos](/Carpetas-Contenidos/Despliegues/despliegues.md)
+- [Environments en GitLab](/Carpetas-Contenidos/Enviroments/environments.md)
+- [Buenas Prácticas](/Carpetas-Contenidos/BuenasPracticas/buenas-practicas.md)
 
 ---
 
