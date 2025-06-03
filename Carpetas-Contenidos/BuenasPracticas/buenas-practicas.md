@@ -14,8 +14,8 @@ stages:
   - test
   - deploy
 ```
-🔸 Podemos añadir otras como lint, package, release, cleanup si el proyecto lo necesita.
-🔸 Evita tener demasiadas stages que compliquen el flujo innecesariamente.
+-  Podemos añadir otras como lint, package, release, cleanup si el proyecto lo necesita.
+-  Hay que evitar tener demasiadas stages que compliquen el flujo innecesariamente.
 
 ---
 
