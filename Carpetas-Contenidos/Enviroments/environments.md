@@ -127,40 +127,40 @@ stop_review:
 ### 🔍 Explicación del ejemplo
 Este pipeline define tres etapas principales: build, deploy y cleanup. Cada job está vinculado a una etapa y tiene reglas específicas para controlar cuándo y cómo se ejecuta.
 
-🧱 build_app
+- 🧱 build_app
 
-- Este job se encarga de simular la construcción (build) de la aplicación.
+  - Este job se encarga de simular la construcción (build) de la aplicación.
 
-- Pertenece a la etapa build.
+  - Pertenece a la etapa build.
 
-- Ejecuta un comando sencillo como ejemplo, pero aquí irían tareas como compilar el código o generar binarios.
+  - Ejecuta un comando sencillo como ejemplo, pero aquí irían tareas como compilar el código o generar binarios.
 
-🚀 deploy_staging
+- 🚀 deploy_staging
 
-- Despliega la aplicación en el entorno de staging.
+  - Despliega la aplicación en el entorno de staging.
 
-- Solo se ejecuta cuando el commit pertenece a la rama develop.
+  - Solo se ejecuta cuando el commit pertenece a la rama develop.
 
-- Define un environment llamado staging con una URL donde supuestamente se despliega la app.
+  - Define un environment llamado staging con una URL donde supuestamente se despliega la app.
 
-- Muy útil para probar antes de subir a producción.
+  - Muy útil para probar antes de subir a producción.
 
-🚢 deploy_production
+- 🚢 deploy_production
 
-- Este job despliega la app en producción.
+  - Este job despliega la app en producción.
 
-- Se ejecuta manualmente (when: manual) desde la interfaz de GitLab, como medida de seguridad.
+  - Se ejecuta manualmente (when: manual) desde la interfaz de GitLab, como medida de seguridad.
 
-- Solo está disponible si el commit proviene de la rama main.
+  - Solo está disponible si el commit proviene de la rama main.
 
-- El entorno definido se llama production, con su correspondiente URL pública.
+  - El entorno definido se llama production, con su correspondiente URL pública.
 
-🧹 stop_review
+- 🧹 stop_review
 
-- Este job se encarga de eliminar entornos de revisión temporales.
+  - Este job se encarga de eliminar entornos de revisión temporales.
 
-- El nombre del environment se genera dinámicamente con el nombre de la rama o MR.
+  - El nombre del environment se genera dinámicamente con el nombre de la rama o MR.
 
-- Se activa únicamente cuando el pipeline ha sido lanzado desde un evento de Merge Request.
+  - Se activa únicamente cuando el pipeline ha sido lanzado desde un evento de Merge Request.
 
-- El parámetro action: stop indica que el entorno será detenido/eliminado.
+  - El parámetro action: stop indica que el entorno será detenido/eliminado.
