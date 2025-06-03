@@ -58,6 +58,7 @@ deploy_app:
   script:
     - echo "Desplegando aplicación..."
 ```
+---
 
 ## 4. Ejemplo usando include:project 🚀
 
@@ -69,6 +70,8 @@ include:
 ```
 📌 Esto incluye un archivo desde otro repositorio dentro del mismo GitLab. Muy útil para compartir CI corporativa.
 
+---
+
 ## 5. Ejemplo usando include:remote 🌐
 
 ```yaml
@@ -77,6 +80,8 @@ include:
 ```
 ☁️ Ideal para plantillas externas comunes (aseguarnos de confiar en el origen).
 
+---
+
 ## 6. Usar plantillas predefinidas include:template 📦
 
 ```yaml
@@ -84,6 +89,8 @@ include:
   - template: 'Jobs/SAST.gitlab-ci.yml'
 ```
 🔒 GitLab ofrece plantillas oficiales para cosas como análisis de seguridad, linting o despliegue.
+
+---
 
 ## 7. Reutilización con extends 🧬
 Podemos crear bloques reutilizables y extenderlos en varios jobs:
@@ -101,4 +108,33 @@ job2:
   stage: deploy
 ```
 🚀 Con extends, podemos aplicar una configuración base a muchos jobs fácilmente.
+
+---
+
+## 9. Ejemplo completo 🧪
+
+ci-templates/build-template.yml
+
+```yaml
+.build_template:
+  script:
+    - echo "Compilando aplicación..."
+```
+
+.gitlab-ci.yml
+
+```yaml
+include:
+  - local: 'ci-templates/build-template.yml'
+
+stages:
+  - build
+
+build_job:
+  extends: .build_template
+  stage: build
+```
+🎯 Resultado: el build_job usará el script definido en .build_template.
+
+
 
