@@ -106,4 +106,121 @@ test_job:
 
 - El job test_job reutiliza la caché de node_modules/, depende de build_job para acceder a sus artefactos, y guarda informes de test.
 
+---
+## 🧩 Ejemplo completo con caché y artefactos
 
+```yaml
+stages:
+  - install
+  - build
+  - test
+  - deploy
+```
+```yaml
+install_dependencies:
+  stage: install
+  script:
+    - cd frontend && npm install
+    - cd ../backend && pip install -r requirements.txt
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - frontend/node_modules/
+      - backend/.venv/
+```
+### 🔍 ¿Qué hace?
+
+- Instala las dependencias del frontend (npm) y del backend (pip).
+
+- Usa una caché compartida por rama (CI_COMMIT_REF_SLUG) para:
+
+  - node_modules/ → dependencias de npm.
+
+  - .venv/ → entorno virtual de Python.
+
+- Esto acelera el pipeline en ejecuciones futuras.
+
+```yaml
+build_frontend:
+  stage: build
+  script:
+    - cd frontend && npm run build
+  artifacts:
+    paths:
+      - frontend/dist/
+    expire_in: 1 week
+  dependencies:
+    - install_dependencies
+  cache:
+    paths:
+      - frontend/node_modules/
+```
+### 🔍 ¿Qué hace?
+
+- Construye el frontend con Webpack/Vite/etc.
+
+- Guarda la carpeta dist/ como artefacto para etapas siguientes (como test o deploy).
+
+- Reutiliza el caché de node_modules/ (aunque también esté en el job anterior, lo vuelve a declarar aquí para asegurarse de usarlo).
+
+- Usa dependencies para obtener artefactos si los hubiera desde install_dependencies.
+  
+```yaml
+test_backend:
+  stage: test
+  script:
+    - cd backend && pytest --junitxml=test-reports/report.xml
+  artifacts:
+    when: always
+    paths:
+      - backend/test-reports/
+    expire_in: 3 days
+  cache:
+    paths:
+      - backend/.venv/
+  dependencies:
+    - install_dependencies
+```
+### 🔍 ¿Qué hace?
+
+- Ejecuta tests en el backend con pytest y genera un informe XML.
+
+- Guarda los reportes de test como artefactos visibles en la interfaz de GitLab.
+
+- Reutiliza la caché del entorno virtual Python (.venv/).
+
+- Se asegura de tener las dependencias del job anterior (install_dependencies).
+  
+```yaml
+deploy_job:
+  stage: deploy
+  script:
+    - echo "Desplegando la app..."
+  dependencies:
+    - build_frontend
+    - test_backend
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      when: manual
+```
+### 🔍 ¿Qué hace?
+- Job de despliegue manual, solo disponible en la rama main.
+
+- Accede a los artefactos generados por los jobs anteriores (build_frontend, test_backend).
+
+- No necesita usar caché (el despliegue final solo necesita artefactos generados).
+
+
+## 🧠 Consejos para proyectos grandes
+
+✅ Separar responsabilidades por etapas: instalación, build, tests y despliegue.
+
+⚡ Cachear todo lo que no cambie frecuentemente (dependencias, compilaciones pesadas).
+
+📦 Guardar como artefactos los outputs que se usarán en otros jobs o querremos descargar.
+
+🔁 Usar dependencies cuando un job necesita artefactos de otro.
+
+🧹 Limpiar artefactos automáticamente con expire_in para ahorrar espacio.
+
+🛠️ Validar el .gitlab-ci.yml en GitLab para evitar errores de sintaxis.
