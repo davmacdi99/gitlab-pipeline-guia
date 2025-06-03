@@ -3,13 +3,13 @@
 🚀 Una guía completa y práctica para entender, crear y optimizar pipelines en GitLab.
 
 > ✍️ **Hola! Soy David**.  
-> Este repositorio nace de mi interés por aprender y profundizar en GitLab CI/CD. Mi objetivo es compartir lo que voy >aprendiendo con explicaciones claras, ejemplos prácticos y buenas prácticas, tanto para quienes están empezando como >para quienes ya trabajan en el sector.
+> Este repositorio nace de mi interés por aprender y profundizar en GitLab CI/CD. Mi objetivo es compartir lo que voy aprendiendo con diferentes explicaciones lo más claras posibles, ayudando de ejemplos prácticos ideal tanto para quienes están empezando como para quienes ya trabajan en el sector por si lo necesitan.
 
 ---
 
 ## 📘 Descripción
 
-Esta guía está pensada para desarrolladores, DevOps y equipos que quieran incorporar automatización en sus flujos de trabajo mediante **GitLab CI/CD**. Aquí encontrarás ejemplos claros, explicaciones detalladas y buenas prácticas para sacar el máximo provecho de los pipelines.
+Esta guía está pensada para desarrolladores, DevOps y cualquiera que quieran incorporar automatización en sus flujos de trabajo mediante **GitLab CI/CD** donde poder sacar el máximo provecho de los pipelines.
 
 ...
 
@@ -54,15 +54,13 @@ deploy_job:
 ---
 
 ## 🙌 Contribuciones
-> ¿Tienes sugerencias, mejoras o quieres compartir un caso de uso real?
-> ¡Puedes abrir un issue o un pull request! Todas las contribuciones son bienvenidas.
+> ¿Tienes alguna sugerencia, mejoras o quieres compartir un caso de uso real?
+> ¡Puedes abrir un issue o un pull request! ¡Todas las contribuciones son bienvenidas, así podremos aprender mucho más!.
 > 
 ---
 
 ## 💡 ¿Por qué este proyecto?
 > Además de reforzar mis conocimientos, este repositorio representa mi forma de aprender: compartiendo.
-> Espero que te resulte útil, y si estás contratando perfiles DevOps junior con muchas ganas de crecer, ¡me encantaría 
-> hablar contigo!
 
 ## 🔗 Contacto
 
